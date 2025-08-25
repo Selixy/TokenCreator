@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.dylib
+
+# Environnements locaux
+.venv/
+venv/
+env/
+
+# Artefacts de build/packaging
+build/
+*.spec
+
+# Tests / couverture
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Typage / linters
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pyright/
+
+# VS Code : on garde uniquement ce qui est partageable
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/script/

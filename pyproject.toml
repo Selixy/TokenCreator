@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tokencreator"
+version = "0.1.0"
+description = "Viewer 2D pour traiter une suite d'images et les formater en tokens pour DnD"
+authors = [
+  { name = "Selixy", email = "selixy.dev@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "PySide6",
+  "PySide6-Addons",
+  "Pillow"
+]
+
+[tool.setuptools.packages.find]
+where = ["app"]
