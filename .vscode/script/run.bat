@@ -1,22 +1,30 @@
 @echo off
-setlocal
 cls
 
-REM === Aller à la racine du projet (2 niveaux au-dessus de .vscode\script) ===
-pushd "%~dp0..\.."
+rem ─────────────────────────────────────────────
+rem Aller à la racine du projet (2 niveaux au-dessus de .vscode\script)
+set "ROOT=%~dp0..\.."
+pushd "%ROOT%" || (echo [ERREUR] Impossible d'accéder à "%ROOT%" & exit /b 1)
 
-REM Vérif venv
+rem ─────────────────────────────────────────────
+rem Vérifier que le venv existe
 if not exist ".venv\Scripts\activate.bat" (
-  echo [ERREUR] venv introuvable dans %cd%
+  echo [ERREUR] Aucun venv trouvé dans %ROOT%
   echo Lance d'abord setup_venv.bat
+  popd
   exit /b 1
 )
 
-REM Activer venv
+rem ─────────────────────────────────────────────
+rem Activer le venv
 call ".venv\Scripts\activate.bat"
 
-echo === Lancement de l'application ===
-python -m tokencreator
+rem ─────────────────────────────────────────────
+rem Lancer ton application Python
+python -m app
+
+rem ─────────────────────────────────────────────
+rem Conserver le code de sortie
 set EXITCODE=%ERRORLEVEL%
 
 popd

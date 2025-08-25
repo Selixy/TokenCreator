@@ -35,7 +35,7 @@ mkdir "%WORKDIR%"
 mkdir "%DISTDIR%"
 
 REM Options communes PyInstaller
-set "COMMON_OPTS=app\main.py -n %APPNAME% --noconsole --clean --collect-all PySide6 --collect-all PySide6.QtSvgWidgets"
+set "COMMON_OPTS=app\__main__.py -n %APPNAME% --noconsole --clean --collect-all PySide6 --collect-all PySide6.QtSvgWidgets"
 if exist "assets\app.ico" (
   set "COMMON_OPTS=%COMMON_OPTS% --icon=assets\app.ico"
 )
