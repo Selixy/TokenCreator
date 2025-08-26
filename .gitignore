@@ -12,7 +12,6 @@ env/
 
 # Artefacts de build/packaging
 build/
-*.spec
 
 # Tests / couverture
 .pytest_cache/

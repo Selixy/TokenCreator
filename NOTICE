@@ -1,0 +1,35 @@
+TokenCreator
+Copyright (c) 2025 Selixy <selixy.dev@gmail.com>
+Licensed under the MIT License (see LICENSE).
+
+────────────────────────────────────────────
+Third-party components and licenses
+────────────────────────────────────────────
+
+This software bundles third-party libraries. Each library remains
+the property of its respective copyright holder and is distributed
+under its original license terms.
+
+• PySide6
+  License: GNU LGPL v3.0
+  Copyright: The Qt Company Ltd.
+  Source: https://code.qt.io/cgit/pyside/pyside-setup.git/
+  License text: https://www.gnu.org/licenses/lgpl-3.0.html
+
+• PySide6-Addons
+  License: GNU LGPL v3.0
+  Copyright: The Qt Company Ltd.
+  Source: https://code.qt.io/cgit/pyside/pyside-setup.git/
+  License text: https://www.gnu.org/licenses/lgpl-3.0.html
+
+• qframelesswindow
+  License: GNU LGPL v3.0
+  Copyright: yjg30737
+  Source: https://github.com/zhiyiYo/qframelesswindow
+  License text: https://www.gnu.org/licenses/lgpl-3.0.html
+
+• Pillow (Python Imaging Library fork)
+  License: Historical PIL license (HPND / MIT-like)
+  Copyright: 1995-2011 Fredrik Lundh and contributors
+  Source: https://python-pillow.org/
+  License text: https://github.com/python-pillow/Pillow/blob/main/LICENSE
