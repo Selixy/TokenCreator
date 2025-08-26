@@ -1,0 +1,83 @@
+/* === Title bar : bouton "Fichier" (QToolButton) === */
+TitleBar QToolButton#FileBtn {
+    padding: 4px 7px;
+    margin: 0 6px 0 0;
+    border-radius: 4px;
+    background: transparent;
+    color: {{FILEBTN_TEXT}};
+    border: none;
+}
+/* hover / focus */
+TitleBar QToolButton#FileBtn:hover,
+TitleBar QToolButton#FileBtn:focus {
+    background: {{HOVER_BG}};
+    color: {{PRIMARY_TEXT}};
+}
+/* pressed (au clic) */
+TitleBar QToolButton#FileBtn:pressed {
+    background: {{PRESSED_BG}};
+}
+/* retire la petite flèche/chevron du bouton */
+TitleBar QToolButton#FileBtn::menu-indicator {
+    image: none;
+    width: 0px;
+    height: 0px;
+}
+
+/* === Menu déroulant === */
+QMenu#FileMenu::item {
+    padding: 6px 24px;
+    margin: 0;                 /* évite les recouvrements */
+    border: none;
+    border-radius: 3;
+    background: transparent;
+    color: {{MENU_TEXT}};
+}
+
+/* pas de hover : une seule couche visuelle */
+QMenu#FileMenu::item:hover {
+    background: transparent;
+    color: {{MENU_TEXT}};
+}
+
+/* seul état de surbrillance */
+QMenu#FileMenu::item:selected {
+    background: {{MENU_ITEM_SELECTED_BG}};
+    color: {{MENU_ITEM_SELECTED_TEXT}};
+    border-radius: 3px;
+}
+
+/* Séparateur : une seule ligne */
+QMenu#FileMenu::separator {
+    height: 1px;
+    margin: 6px 8px;
+    background: {{MENU_BORDER}};
+    border: none;              /* neutralise les styles natifs à deux tons */
+}
+
+/* Désactive flèches/indicateurs si non utilisés */
+QMenu#FileMenu::right-arrow { image: none; width: 0; height: 0; }
+QMenu#FileMenu::indicator    { width: 0; height: 0; }
+
+
+
+
+/* Tous les boutons système de la titlebar par défaut */
+TitleBarButton {
+    qproperty-normalBackgroundColor: transparent;
+    qproperty-normalColor: #c9c9c9;
+
+    qproperty-hoverBackgroundColor: rgba(255,255,255,0.08);
+    qproperty-hoverColor: #ffffff;
+
+    qproperty-pressedBackgroundColor: rgba(255,255,255,0.12);
+    qproperty-pressedColor: #ffffff;
+}
+
+
+/* Spécifique au bouton Fermer (si la lib lui met un objectName) */
+TitleBarButton#CloseButton {
+    qproperty-hoverBackgroundColor: #e81123;
+    qproperty-hoverColor: #ffffff;
+}
+

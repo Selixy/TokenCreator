@@ -3,10 +3,10 @@ $ErrorActionPreference = "Stop"
 $root = Resolve-Path "$PSScriptRoot/../.."
 Set-Location $root
 
-# Synchroniser avant build (assure que tout est installé)
+# Synchroniser avant build
 uv sync
 
-# Lancer PyInstaller via uv
+# Lancer PyInstaller
 uv run python .vscode/script/build.py
 if ($LASTEXITCODE -ne 0) {
     Write-Error "[ERREUR] Build échoué avec code $LASTEXITCODE"

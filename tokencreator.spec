@@ -11,7 +11,6 @@ for d in (root / "styles", root / "app" / "styles"):
         for p in d.glob("*.qss"):
             datas.append((str(p), "styles"))
 
-# Icônes (optionnel)
 icons_dir = root / "icons"
 if icons_dir.exists():
     for p in icons_dir.glob("*.ico"):
@@ -22,9 +21,7 @@ a = Analysis(
     pathex=[str(root)],
     binaries=[],
     datas=datas,
-    # Évite les modules mac/linux inutiles (et le warning Cocoa)
     hiddenimports=[
-        # si tu veux tout: *ou* collect_submodules('qframelesswindow')
         'qframelesswindow',
         'qframelesswindow.windows',
     ],

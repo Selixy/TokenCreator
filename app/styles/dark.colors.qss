@@ -1,0 +1,14 @@
+{{FILEBTN_TEXT}}: #c9c9c9;
+{{PRIMARY_TEXT}}: #ffffff;
+{{HOVER_BG}}: rgba(255,255,255,0.08);
+{{PRESSED_BG}}: rgba(255,255,255,0.12);
+
+{{MENU_BG}}: #1f1f1f;
+{{MENU_TEXT}}: #e6e6e6;
+{{MENU_BORDER}}: #2a2a2a;
+{{MENU_ITEM_SELECTED_BG}}: rgba(255,255,255,0.10);
+{{MENU_ITEM_SELECTED_TEXT}}: #ffffff;
+
+{{SYSBTN_TEXT}}: #c9c9c9;
+{{CLOSEBTN_HOVER_BG}}: #c0392b;
+{{CLOSEBTN_HOVER_TEXT}}: #ffffff;
