@@ -14,7 +14,8 @@ requires-python = ">=3.11"
 dependencies = [
   "PySide6",
   "PySide6-Addons",
-  "Pillow"
+  "Pillow",
+  "PySideSix-Frameless-Window" 
 ]
 
 [tool.setuptools.packages.find]

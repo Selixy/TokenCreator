@@ -17,9 +17,7 @@ if not exist ".venv\Scripts\activate.bat" (
 )
 call ".venv\Scripts\activate.bat"
 
-REM Si tu utilises unittest :
 python -m unittest discover -s tests -p "test_*.py"
-REM Si tu utilises pytest, remplace par : python -m pytest
 
 set EXITCODE=%ERRORLEVEL%
 popd

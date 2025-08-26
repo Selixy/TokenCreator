@@ -17,9 +17,14 @@
     {
       "label": "Lancer",
       "type": "process",
-      "command": "cmd.exe",
-      "args": ["/c", "${workspaceFolder}\\.vscode\\script\\run.bat"],
-      "options": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "${workspaceFolder}/.vscode/script/run.ps1"
+      ],
+      "options": { 
+        "cwd": "${workspaceFolder}",
         "statusbar": {
           "label": "$(rocket) Run",
           "color": "#f76353",
@@ -30,13 +35,18 @@
     {
       "label": "Deployer une release",
       "type": "process",
-      "command": "cmd.exe",
-      "args": ["/c", "${workspaceFolder}\\.vscode\\script\\build.bat"],
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "${workspaceFolder}/.vscode/script/build.ps1"
+      ],
       "options": {
+        "cwd": "${workspaceFolder}",
         "statusbar": {
-          "label": "$(rocket) release",
+          "label": "$(rocket) Release",
           "color": "#0fc715",
-          "detail": "Compiler et lancer EchoDice"
+          "detail": "Compiler et packager EchoDice"
         }
       }
     }
