@@ -11,23 +11,7 @@ Set-Location $Root
 
 # ─────────────────────────────────────────────
 # Vérifier que le venv existe et l'activer
-$VenvActivate = Join-Path $Root ".venv\Scripts\Activate.ps1"
-if (-Not (Test-Path $VenvActivate)) {
-    & Join-Path $PSScriptRoot "setup_venv.ps1"
-    if (-Not (Test-Path $VenvActivate)) {
-        Write-Error "[ERREUR] Aucun venv trouvé dans $Root"
-        Write-Output "Lance d'abord setup_venv.bat"
-        exit 1
-    }
-}
-. $VenvActivate
-
-# ─────────────────────────────────────────────
-# Lancer ton application Python
-python -m app
+uv run python -m app
 $ExitCode = $LASTEXITCODE
 
-# ─────────────────────────────────────────────
-# Rétablir le dossier précédent et sortir avec le même code
-Set-Location $ScriptDir
 exit $ExitCode

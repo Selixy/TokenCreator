@@ -15,7 +15,8 @@ dependencies = [
   "PySide6",
   "PySide6-Addons",
   "Pillow",
-  "PySideSix-Frameless-Window" 
+  "PySideSix-Frameless-Window",
+  "pyinstaller>=6.15"
 ]
 
 [tool.setuptools.packages.find]
