@@ -6,7 +6,7 @@ from PySide6.QtWidgets import (
 from ui.top_menu import TopMenu
 
 
-class TitleBar(QWidget):
+class TopBar(QWidget):
     def __init__(self, parent: QWidget | None = None):
         super().__init__(parent)
         self.setObjectName("TitleBar")
@@ -17,8 +17,8 @@ class TitleBar(QWidget):
         self.filteredWindow: QWidget | None = None
 
         layout = QHBoxLayout(self)
-        layout.setContentsMargins(11, 9, 0, 0)
-        layout.setSpacing(5)
+        layout.setContentsMargins(11, 2, 0, 0)
+        layout.setSpacing(9)
 
         # Icône
         self.icon_lbl = QLabel(self)
@@ -30,10 +30,11 @@ class TitleBar(QWidget):
 
         # Top menu
         self.topMenu = TopMenu(self)
+        self.topMenu.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
 
         # Spacer
-        layout.addWidget(self.icon_lbl)
-        layout.addWidget(self.topMenu)
+        layout.addWidget(self.icon_lbl, 0, Qt.AlignVCenter)
+        layout.addWidget(self.topMenu, 0, Qt.AlignVCenter)
         layout.addItem(QSpacerItem(0, 0, QSizePolicy.Expanding, QSizePolicy.Minimum))
 
         # Sync icône fenêtre

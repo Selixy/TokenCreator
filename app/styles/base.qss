@@ -1,6 +1,6 @@
 /* === Title bar : bouton "Fichier" (QToolButton) === */
-TitleBar QToolButton#FileBtn {
-    padding: 4px 7px;
+TopBar QToolButton#FileBtn {
+    padding: 1px 5px;
     margin: 0 6px 0 0;
     border-radius: 4px;
     background: transparent;
@@ -8,17 +8,17 @@ TitleBar QToolButton#FileBtn {
     border: none;
 }
 /* hover / focus */
-TitleBar QToolButton#FileBtn:hover,
-TitleBar QToolButton#FileBtn:focus {
+TopBar QToolButton#FileBtn:hover,
+TopBar QToolButton#FileBtn:focus {
     background: {{HOVER_BG}};
     color: {{PRIMARY_TEXT}};
 }
 /* pressed (au clic) */
-TitleBar QToolButton#FileBtn:pressed {
+TopBar QToolButton#FileBtn:pressed {
     background: {{PRESSED_BG}};
 }
 /* retire la petite flèche/chevron du bouton */
-TitleBar QToolButton#FileBtn::menu-indicator {
+TopBar QToolButton#FileBtn::menu-indicator {
     image: none;
     width: 0px;
     height: 0px;
@@ -27,7 +27,7 @@ TitleBar QToolButton#FileBtn::menu-indicator {
 /* === Menu déroulant === */
 QMenu#FileMenu::item {
     padding: 6px 24px;
-    margin: 0;                 /* évite les recouvrements */
+    margin: 0;
     border: none;
     border-radius: 3;
     background: transparent;
@@ -52,7 +52,7 @@ QMenu#FileMenu::separator {
     height: 1px;
     margin: 6px 8px;
     background: {{MENU_BORDER}};
-    border: none;              /* neutralise les styles natifs à deux tons */
+    border: none;
 }
 
 /* Désactive flèches/indicateurs si non utilisés */
@@ -74,10 +74,14 @@ TitleBarButton {
     qproperty-pressedColor: #ffffff;
 }
 
-
 /* Spécifique au bouton Fermer (si la lib lui met un objectName) */
 TitleBarButton#CloseButton {
     qproperty-hoverBackgroundColor: #e81123;
     qproperty-hoverColor: #ffffff;
 }
 
+ /* bg du Workspace */
+QWidget#WorkspaceRoot {
+    background-color: {{WORKSPACE_BG}};
+    color: {{WORKSPACE_FG}};
+}
