@@ -39,13 +39,20 @@ Ce dossier contient `TokenCreator.exe` **et** ses dépendances (/_internal, DLL 
 TokenCreator/
 ├─ .vscode/
 │  └─ script/
-│     ├─ setup_venv.bat
-│     ├─ run.bat
-│     └─ release.bat
+│     ├─ build.ps1
+│     ├─ build.py
+│     └─ run.ps1
 ├─ app/
 │  ├─ __init__.py
 │  ├─ main.py
-│  └─ viewer.py
+│  ├─ logic/
+│  │  └─ ...
+│  ├─ ui/
+│  │  └─ ...
+│  └─ styles/
+│     └─ ...
+├─ icons/
+│  └─ app.ico
 ├─ build/
 │  └─ TokenCreator/
 │     ├─ TokenCreator.exe
