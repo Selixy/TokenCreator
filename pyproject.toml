@@ -12,10 +12,11 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+  "numpy",
   "PySide6",
   "PySide6-Addons",
-  "Pillow",
   "PySideSix-Frameless-Window",
+  "opencv-python-headless",
   "pyinstaller>=6.15"
 ]
 

@@ -4,25 +4,25 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout
 from qframelesswindow import FramelessMainWindow
 from ui.top_bar import TopBar
 from ui.workspace import Workspace
-
+from functools import partial
+from logic.fichier import action_nouveau, action_ouvrir, action_quitter
 
 class MainWindow(FramelessMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("TokenMaker")
 
-        # bouton natif
+        # bouton natif (facultatif: style)
         btn = self.titleBar.closeBtn
         btn.setObjectName("CloseButton")
-        btn.style().unpolish(btn)
-        btn.style().polish(btn)
-        btn.update()
+        btn.style().unpolish(btn); btn.style().polish(btn); btn.update()
 
+        # superposer la TopBar dans la barre native
         self.topBar = TopBar(self.titleBar)
         self._place_topbar()
         self.titleBar.installEventFilter(self)
 
-        # workspace central, on soustrais la bare de titre
+        # central: marge haute = 32 (barre native)
         container = QWidget(self)
         layout = QVBoxLayout(container)
         layout.setContentsMargins(0, 32, 0, 0)
@@ -30,13 +30,11 @@ class MainWindow(FramelessMainWindow):
 
         self.workspace = Workspace(container)
         layout.addWidget(self.workspace)
-
         self.setCentralWidget(container)
 
         self.titleBar.raise_()
-
         self.resize(900, 600)
-        self._init_menu()
+
 
     def _place_topbar(self):
         tb = self.titleBar
@@ -56,26 +54,3 @@ class MainWindow(FramelessMainWindow):
         if obj is self.titleBar and ev.type() in (QEvent.Resize, QEvent.Show):
             self._place_topbar()
         return super().eventFilter(obj, ev)
-
-    def _init_menu(self):
-        m_file = self.topBar.fileMenu
-
-        a_new = QAction("Nouveau", self)
-        a_new.setShortcut(QKeySequence.New)
-        a_new.triggered.connect(lambda: self._log("Nouveau"))
-        m_file.addAction(a_new)
-
-        a_open = QAction("Ouvrir…", self)
-        a_open.setShortcut(QKeySequence.Open)
-        a_open.triggered.connect(lambda: self._log("Ouvrir"))
-        m_file.addAction(a_open)
-
-        m_file.addSeparator()
-
-        a_quit = QAction("Quitter", self)
-        a_quit.setShortcut(QKeySequence.Quit)
-        a_quit.triggered.connect(self.close)
-        m_file.addAction(a_quit)
-
-    def _log(self, msg):
-        print(msg)
