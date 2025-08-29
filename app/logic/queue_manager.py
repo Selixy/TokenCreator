@@ -5,6 +5,13 @@ if False:
     from logic.image_buffer import ImageBuffer
 
 
+def _normalize_path(p: Path | str) -> Path:
+    try:
+        return Path(p).resolve(strict=False)
+    except Exception:
+        return Path(p)
+
+
 class QueueManager:
     def __init__(self, image_buffer: "ImageBuffer") -> None:
         self._queue: list[Path] = []
@@ -24,7 +31,7 @@ class QueueManager:
         seen: set[Path] = set()
         unique: list[Path] = []
         for p in paths:
-            q = Path(p)
+            q = _normalize_path(p)
             if q not in seen:
                 seen.add(q)
                 unique.append(q)
@@ -32,10 +39,11 @@ class QueueManager:
         self.update()
 
     def get_all(self) -> list[Path]:
+        # On renvoie des copies pour éviter les mutations externes
         return list(self._queue)
 
     def set_current(self, path: Path | str) -> None:
-        p = Path(path)
+        p = _normalize_path(path)
         try:
             self._queue.remove(p)
         except ValueError:
@@ -52,13 +60,13 @@ class QueueManager:
             self.update()
 
     def add(self, path: Path | str) -> None:
-        p = Path(path)
+        p = _normalize_path(path)
         if p not in self._queue:
             self._queue.append(p)
             self.update()
 
     def remove(self, path: Path | str) -> None:
-        p = Path(path)
+        p = _normalize_path(path)
         try:
             self._queue.remove(p)
             self.update()
