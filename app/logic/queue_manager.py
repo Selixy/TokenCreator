@@ -8,17 +8,17 @@ if False:
 class QueueManager:
     def __init__(self, image_buffer: "ImageBuffer") -> None:
         self._queue: list[Path] = []
-        self._last_curant: Path | None = None
+        self._last_current: Path | None = None
         self._image_buffer = image_buffer
 
     def update(self) -> None:
         if not self._queue:
-            self._last_curant = None
+            self._last_current = None
             return
         head = self._queue[0]
-        if self._last_curant != head:
+        if self._last_current != head:
             self._image_buffer.load_image(head)
-            self._last_curant = head
+            self._last_current = head
 
     def set_paths(self, paths: list[Path | str]) -> None:
         seen: set[Path] = set()
@@ -34,7 +34,7 @@ class QueueManager:
     def get_all(self) -> list[Path]:
         return list(self._queue)
 
-    def set_curant(self, path: Path | str) -> None:
+    def set_current(self, path: Path | str) -> None:
         p = Path(path)
         try:
             self._queue.remove(p)
@@ -43,7 +43,7 @@ class QueueManager:
         self._queue.insert(0, p)
         self.update()
 
-    def get_curant(self) -> Path | None:
+    def get_current(self) -> Path | None:
         return self._queue[0] if self._queue else None
 
     def advance(self) -> None:
